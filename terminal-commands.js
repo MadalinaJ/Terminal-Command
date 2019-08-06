@@ -8,11 +8,11 @@ module.exports.ls=()=>{
     })
 }
 
-module.exports.touch=()=>{
-    fs.writeFile('term.txt', 'terminal commands', 'utf8', (err) => {
+module.exports.touch=(file)=>{
+    fs.writeFile(file, 'terminal commands', 'utf8', (err) => {
         if (err) throw err;
       
-        console.log('new txt file created');
+        console.log(file + ' is created');
       });
 }
 
@@ -20,8 +20,18 @@ module.exports.touch=()=>{
 module.exports.mkdir = () => {
     fs.mkdir('newFolder',(err) => {
         if (err) {
-            return `Error: ${err}`;
-        }
+           return `Error: ${err}`;
+       }
         console.log('This is a new folder');
     })
   };
+  
+// OR
+//module.exports.mkdir = (dir) => {
+//    fs.mkdir('./'+ dir,function(err){
+//        if (err) {
+//            return console.error(err);
+//        }
+//       console.log('This is a new ' + dir);
+//    })
+//  };
